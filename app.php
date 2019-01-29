@@ -1,3 +1,6 @@
+<?php
+$display_name = 'Toshikazu.H' ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +15,7 @@
           <div class="avatar">
             <img src="img/logo.png" alt="Alt For Image">
           </div>
-          <h1><?php echo "Toshikazu" ?></h1>
+          <h1><?php echo $display_name; ?></h1>
           <p>Contact:<br />
           <a href="mailto:">EMAIL</a></p>
           <hr />
@@ -26,14 +29,22 @@
           <h1>My First PHP Page</h1>
 
           <h2>Unit Conversion</h2>
+            <?php include 'inc/units.php'; ?>
 
           <hr />
 
           <h2>Daily Exercise</h2>
+          <?php include 'inc/exercise.php'; ?>
         </section>
     </div>
     <section class="footer text-center">
-      &copy; 2016 Treehouse Island, Inc.
+      &copy;
+      <?php
+        echo date('Y');
+        echo " " . $display_name . ". ";
+        // outputs e.g. 'Last modified: March 04 1998 20:43:59.'
+        echo "Last modified: " . date ("F d Y H:i:s.", getlastmod());
+      ?>
     </section>
   </body>
 </html>
